@@ -15,7 +15,7 @@ const AnswerDetails: React.FC<AnswerDetailsProps> = ({
 }) => {
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
-      <div className="bg-white p-4 rounded-lg shadow-lg w-3/4 max-w-2xl">
+      <div className="bg-white p-4 rounded-lg shadow-lg w-full md:max-w-3xl">
         <h2 className="text-xl font-bold mb-4">{description}</h2>
         <div className="space-y-4">
           {examples.map((example, index) =>
