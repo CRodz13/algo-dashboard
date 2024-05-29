@@ -125,14 +125,17 @@ const flowQuestions: { [key: string]: Question } = {
   question24: {
     text: "Monotonic condition?",
     yes: "answer8",
+    no: "question1",
   },
   question25: {
     text: "O(1) memory required",
     yes: "question26",
+    no: "question1",
   },
   question26: {
     text: "Involves monotonic condition?",
     yes: "answer8",
+    no: "question1",
   },
 };
 
