@@ -9,6 +9,7 @@ interface Question {
   no?: string;
   yesAnswer?: string;
   noAnswer?: string;
+  example?: Array<string> | undefined;
 }
 
 type Answer = {
@@ -17,125 +18,239 @@ type Answer = {
 };
 
 const flowQuestions: { [key: string]: Question } = {
-  question1: { text: "Is it a graph?", yes: "question2", no: "question8" },
-  question2: { text: "Is it a tree?", yes: "answer1", no: "question3" },
+  question1: {
+    text: "Is it a graph?",
+    yes: "question2",
+    no: "question8",
+    example: [
+      "A graph is a collection of nodes and edges that connect pairs of nodes.",
+      "Example usage: Representing a social network with users as nodes and connections as edges.",
+    ],
+  },
+  question2: {
+    text: "Is it a tree?",
+    yes: "answer1",
+    no: "question3",
+    example: [
+      "A tree is a type of graph where each node has exactly one parent, except for the root node which has none.",
+      "Example usage: Representing hierarchical data like file systems or organizational structures.",
+    ],
+  },
   question3: {
     text: "Is the problem related to directed acyclic graphs?",
     yes: "answer2",
     no: "question4",
+    example: [
+      "Directed acyclic graphs (DAGs) are graphs where edges have a direction and there are no cycles.",
+      "Example usage: Representing dependencies between tasks in a project management system.",
+    ],
   },
   question4: {
     text: "Is the problem related to shortest paths?",
     yes: "question5",
     no: "question6",
+    example: [
+      "Shortest paths refer to finding the most efficient route between two points in a graph.",
+      "Example usage: Finding the quickest route for a delivery truck to reach its destination.",
+    ],
   },
   question5: {
     text: "Is the graph Weighted?",
     yes: "answer3",
     no: "answer4",
+    example: [
+      "Weighted graphs have a value associated with each edge, indicating the cost or distance between nodes.",
+      "Example usage: Modeling distances between cities in a map.",
+    ],
   },
   question6: {
     text: "Does the problem involve connectivity?",
     yes: "answer5",
     no: "question7",
+    example: [
+      "Connectivity problems relate to determining whether all nodes in a graph are reachable from one another.",
+      "Example usage: Checking if there is a path between two users in a social network.",
+    ],
   },
   question7: {
     text: "Does the problem have small constraints?",
     yes: "answer6",
     no: "answer4",
+    example: [
+      "Problems with small constraints typically involve inputs of limited size, making brute-force solutions feasible.",
+      "Example usage: Searching for the shortest path in a small maze.",
+    ],
   },
   question8: {
     text: "Need to solve for kth smallest/largest?",
     yes: "answer7",
     no: "question9",
+    example: [
+      "Problems involving finding the kth smallest or largest element in a collection.",
+      "Example usage: Finding the median of a list of numbers.",
+    ],
   },
   question9: {
     text: "Involves Linked List?",
     yes: "answer8",
     no: "question10",
+    example: [
+      "Linked lists are data structures where each element points to the next in a sequence.",
+      "Example usage: Implementing a queue or stack.",
+    ],
   },
   question10: {
     text: "Small constraint bounds?",
     yes: "question11",
     no: "question12",
+    example: [
+      "Similar to question 7, this refers to problems with small input sizes.",
+      "Example usage: Sorting a small array of integers.",
+    ],
   },
   question11: {
     text: "Is brute force fast enough?",
     yes: "answer9",
     no: "answer10",
+    example: [
+      "Brute force is a straightforward problem-solving technique that involves trying all possible solutions exhaustively to find the desired outcome. In computational terms, it entails iterating through all possible combinations or permutations of elements until the correct solution is identified. While conceptually simple and easy to implement, brute force methods may not always be the most efficient approach, particularly for problems with large input sizes, as they can be computationally expensive and time-consuming.",
+      "Example usage: Determining if a given problem can be solved efficiently using brute force methods, such as checking if a Sudoku puzzle can be solved by trying all possible number combinations.",
+    ],
   },
   question12: {
     text: "About subarrays or substrings?",
     yes: "question13",
     no: "question14",
+    example: [
+      "Problems involving finding or manipulating contiguous sections of an array or string.",
+      "Example usage: Finding the longest palindromic(word reads backwards or forward) substring in a string.",
+    ],
   },
   question13: {
     text: "Deals with sums or additives",
     yes: "answer11",
     no: "answer12",
+    example: [
+      "Problems that involve calculating the sum of elements in an array or a series of additive operations.",
+      "Example usage: Finding the contiguous subarray with the largest sum.",
+    ],
   },
   question14: {
     text: "Calculating max/min of something?",
     yes: "question2",
     no: "question18",
+    example: [
+      "Problems that require finding the maximum or minimum value among a set of elements.",
+      "Example usage: Finding the maximum value in an array of integers.",
+    ],
   },
   question15: {
     text: "Monotonic condition?",
     yes: "answer13",
     no: "question16",
+    example: [
+      "Problems where elements exhibit a specific trend or pattern, such as being non-decreasing or non-increasing.",
+      "Example usage: Determining if an array is sorted in non-decreasing order.",
+    ],
   },
   question16: {
     text: "Can be split into sub-components?",
     yes: "answer10",
     no: "question17",
+    example: [
+      "Problems that can be divided into smaller, more manageable sub-problems.",
+      "Example usage: Implementing merge sort to sort an array.",
+    ],
   },
   question17: {
     text: "Greedily calculate answer?",
     yes: "answer14",
     no: "question8",
+    example: [
+      "Problems where choosing the locally optimal solution at each step leads to a globally optimal solution.",
+      "Example usage: Finding the minimum number of coins needed to make change.",
+    ],
   },
   question18: {
     text: "Asking for number of ways?",
     yes: "question19",
     no: "question20",
+    example: [
+      "Problems that require counting the number of possible outcomes or arrangements.",
+      "Example usage: Finding the number of ways to climb a staircase with certain step sizes.",
+    ],
   },
   question19: {
     text: "Is brute force fast enough?",
     yes: "answer9",
     no: "answer10",
+    example: [
+      "Similar to question 11, this refers to determining if brute-force methods are feasible for solving the problem.",
+      "Example usage: Testing if a given chess position can be won by trying all possible moves.",
+    ],
   },
   question20: {
     text: "Multiple Sequences?",
     yes: "question21",
     no: "question23",
+    example: [
+      "Problems that involve multiple sequences or sets of data.",
+      "Example usage: Finding the longest common subsequence between two strings.",
+    ],
   },
   question21: {
     text: "Monotonic conditions?",
     yes: "answer8",
+    no: "question1",
+    example: [
+      "Similar to question 15, this relates to problems with monotonic(varying in such a way that it either never decreases or never increases.) trends or patterns.",
+      "Example usage: Checking if a given array is monotonic(varying in such a way that it either never decreases or never increases.).",
+    ],
   },
   question22: {
     text: "Can split into sub-problems?",
     yes: "answer10",
+    no: "question1",
+    example: [
+      "Problems that can be divided into smaller, independent sub-problems.",
+      "Example usage: Implementing dynamic programming to solve the Fibonacci sequence.",
+    ],
   },
   question23: {
     text: "Find or enumerate indices?",
     yes: "question24",
     no: "question25",
+    example: [
+      "Problems that require finding or listing the indices of certain elements or conditions.",
+      "Example usage: Finding all occurrences of a substring in a larger string.",
+    ],
   },
   question24: {
     text: "Monotonic condition?",
     yes: "answer8",
     no: "question1",
+    example: [
+      "Similar to questions 15, 20, and 24, this relates to problems with monotonic trends or patterns.",
+      "Example usage: Determining if an array is non-increasing.",
+    ],
   },
   question25: {
     text: "O(1) memory required",
     yes: "question26",
     no: "question1",
+    example: [
+      "Problems where the memory usage must be constant, regardless of the input size.",
+      "Example usage: Implementing an algorithm to reverse a linked list in place.",
+    ],
   },
   question26: {
     text: "Involves monotonic condition?",
     yes: "answer8",
     no: "question1",
+    example: [
+      "Similar to questions 15 and 20, this relates to problems with monotonic trends or patterns.",
+      "Example usage: Checking if an array is strictly increasing.",
+    ],
   },
 };
 
@@ -690,6 +805,9 @@ export default function DashboardPage() {
       {currentQuestion ? (
         <FlowQuestion
           question={currentQuestion.text}
+          example={
+            currentQuestion.example ? currentQuestion.example[0] : undefined
+          }
           yesQuestion={currentQuestion.yes}
           noQuestion={currentQuestion.no}
           yesAnswer={currentQuestion.yesAnswer}

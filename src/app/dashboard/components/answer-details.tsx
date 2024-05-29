@@ -15,9 +15,9 @@ const AnswerDetails: React.FC<AnswerDetailsProps> = ({
 }) => {
   return (
     <div className="fixed inset-0 bg-gray-600 bg-opacity-50 flex justify-center items-center">
-      <div className="bg-white p-4 rounded-lg shadow-lg w-full md:max-w-3xl">
+      <div className="bg-white p-4 rounded-lg shadow-lg min-w-[300px] md:max-w-3xl">
         <h2 className="text-xl font-bold mb-4">{description}</h2>
-        <div className="space-y-4">
+        <div className="space-y-4 text-xs">
           {examples.map((example, index) =>
             typeof example === "string" ? (
               <p key={index}>{example}</p>
